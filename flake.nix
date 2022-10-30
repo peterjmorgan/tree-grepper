@@ -6,8 +6,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # tree-sitter grammars
+
     tree-sitter-cpp = {
       url = "github:tree-sitter/tree-sitter-cpp";
+      flake = false;
+    };
+
+    tree-sitter-c = {
+      url = "github:tree-sitter/tree-sitter-c";
       flake = false;
     };
 
@@ -76,6 +82,7 @@
           mkdir vendor
 
           set -x
+          ln -s ${inputs.tree-sitter-c} vendor/tree-sitter-c
           ln -s ${inputs.tree-sitter-cpp} vendor/tree-sitter-cpp
           ln -s ${inputs.tree-sitter-elixir} vendor/tree-sitter-elixir
           ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm

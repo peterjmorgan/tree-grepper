@@ -22,6 +22,24 @@ fn main() {
         .file(cpp_dir.join("scanner.cc"))
         .compile("tree_sitter_cpp_scanner");
 
+    // c
+    let c_dir: PathBuf = ["vendor", "tree-sitter-c", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-c/src/parser.c");
+    cc::Build::new()
+        .include(&c_dir)
+        .warnings(false)
+        .file(c_dir.join("parser.c"))
+        .compile("tree-sitter-c");
+
+    // println!("cargo:rerun-if-changed=vendor/tree-sitter-cpp/src/scanner.cc");
+    // cc::Build::new()
+        // .include(&cpp_dir)
+        // .cpp(true)
+        // .warnings(false)
+        // .file(cpp_dir.join("scanner.cc"))
+        // .compile("tree_sitter_cpp_scanner");
+
     // elixir
     let elixir_dir: PathBuf = ["vendor", "tree-sitter-elixir", "src"].iter().collect();
 
