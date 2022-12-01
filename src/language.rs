@@ -69,7 +69,7 @@ impl Language {
             Language::Markdown => "markdown",
             Language::Nix => "nix",
             Language::Php => "php",
-            Language::Python => "python",
+            Language::Python => "py",
             Language::Ruby => "ruby",
             Language::Rust => "rust",
             Language::TypeScript => "ts",
