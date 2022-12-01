@@ -12,6 +12,7 @@ pub enum Language {
     Markdown,
     Nix,
     Php,
+    Python,
     Ruby,
     Rust,
     TypeScript,
@@ -28,6 +29,7 @@ impl Language {
             Language::Markdown,
             Language::Nix,
             Language::Php,
+            Language::Python,
             Language::Ruby,
             Language::Rust,
             Language::TypeScript,
@@ -45,6 +47,7 @@ impl Language {
                 Language::Markdown => tree_sitter_markdown(),
                 Language::Nix => tree_sitter_nix(),
                 Language::Php => tree_sitter_php(),
+                Language::Python => tree_sitter_python(),
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
                 Language::TypeScript => tree_sitter_typescript(),
@@ -66,6 +69,7 @@ impl Language {
             Language::Markdown => "markdown",
             Language::Nix => "nix",
             Language::Php => "php",
+            Language::Python => "python",
             Language::Ruby => "ruby",
             Language::Rust => "rust",
             Language::TypeScript => "ts",
@@ -86,6 +90,7 @@ impl FromStr for Language {
             "markdown" => Ok(Language::Markdown),
             "nix" => Ok(Language::Nix),
             "php" => Ok(Language::Php),
+            "python" => Ok(Language::Python),
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
             "typescript" => Ok(Language::TypeScript),
@@ -113,6 +118,7 @@ impl Display for Language {
             Language::Markdown => f.write_str("markdown"),
             Language::Nix => f.write_str("nix"),
             Language::Php => f.write_str("php"),
+            Language::Python => f.write_str("python"),
             Language::Ruby => f.write_str("ruby"),
             Language::Rust => f.write_str("rust"),
             Language::TypeScript => f.write_str("typescript"),
@@ -163,6 +169,7 @@ extern "C" {
     fn tree_sitter_markdown() -> tree_sitter::Language;
     fn tree_sitter_nix() -> tree_sitter::Language;
     fn tree_sitter_php() -> tree_sitter::Language;
+    fn tree_sitter_python() -> tree_sitter::Language;
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;
     fn tree_sitter_typescript() -> tree_sitter::Language;
